@@ -6,18 +6,23 @@ using namespace std;
 
 bool CheckCircle (string Figure)
 {	
-    if ((strstr(Figure.c_str(), "Circle "))
-      || (strstr (Figure.c_str(), "Circle(")))
+    if ((strstr(Figure.c_str(), "C"))
+      || (strstr (Figure.c_str(), "c")))
       {         
 	            cmatch result;
-                regex regular (                          
-                      "([\\w\\s]+)"	
+                regex regular (    
+					  "(\\s*)"
+					  "(c|C)"                      
+                      "(i|I)"
+					  "(r|R)"
+					  "(c|C)"
+					  "(l|L)"
+					  "(e|E)"
+					  "([\\s]*)"	
                       "(\\()"		
                       "(\\s*)"	
-					//  "([0-9]+)"	
                       "([0-9]*[.]?[0-9]+)"	
                       "(\\s*)"	
-                    //  "([0-9]+)"
 					  "([0-9]*[.]?[0-9]+)"
                       "(\\s*)"	
 					  "(\\,)"		
@@ -28,15 +33,14 @@ bool CheckCircle (string Figure)
 					   );
                  if (regex_match(Figure.c_str(), result, regular))
                     return true; 
-					//cout<<"1";
+					
 				else
 					return false;
-                 	//cout<<"0";
+                 	
                 
       } 
       else
       	return false;
-      	//cout<<"00";
       
 }
 
@@ -46,8 +50,8 @@ int main ()
     setlocale(LC_ALL,"Russian");
     string Figure;
     getline (cin, Figure);
-    if (CheckCircle(Figure))
-    	cout<<"5";
-	else 
-		cout<<"No";
+    if (CheckCircle(Figure) != true)
+    	cout<<"Irritum input format";
+    
+    return 0;
 }
