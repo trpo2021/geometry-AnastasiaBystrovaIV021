@@ -39,4 +39,3 @@ bool CheckCircle(string Figure)
     } else
         return false;
 }
-

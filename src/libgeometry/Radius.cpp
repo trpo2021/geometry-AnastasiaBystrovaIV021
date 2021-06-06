@@ -1,14 +1,14 @@
-#include <string>
 #include <iostream>
 #include <regex>
+#include <string>
 
 #include "Radius.h"
 using namespace std;
 
 float Radius(string Figure)
 {
-		float R = 0;
-		if ((strstr(Figure.c_str(), "C")) || (strstr(Figure.c_str(), "c"))) {
+    float R = 0;
+    if ((strstr(Figure.c_str(), "C")) || (strstr(Figure.c_str(), "c"))) {
         cmatch result;
         regex regular(
                 "(\\s*)"
@@ -30,9 +30,9 @@ float Radius(string Figure)
                 "([0-9]*[.]?[0-9]+)"
                 "(\\s*)"
                 "(\\))");
-        if (regex_match(Figure.c_str(), result, regular)){
-        	R = stof(result.str(17));
-		}
-	}
-	return R;
+        if (regex_match(Figure.c_str(), result, regular)) {
+            R = stof(result.str(17));
+        }
+    }
+    return R;
 }
